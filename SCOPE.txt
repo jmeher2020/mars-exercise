@@ -1,0 +1,34 @@
+This is a Maven Project forr Spring Boot UI Coding Exercise
+
+This Application : 
+Create a simple application with database access;
+Based on an input from the user provide the following functionality;
+
+Functional Coverage:
+1. Add Person (id, firstName, lastName)
+2. Edit Person (firstName, lastName)
+3. Delete Person (id)
+4. Count Number of Persons
+5. List Persons
+
+It also Includes : 
+1. JUnit Tests
+2. Maven or Gradle build (Java)
+
+JUnits : Test Coverage:
+1. Add Person (id, firstName, lastName)
+2. Edit Person (firstName, lastName)
+3. Delete Person (id)
+4. Count Number of Persons
+
+Technical Coverage:
+1. Disgned UI JSP/HTML Page using Spring for : add person, list person, edit person and delete person 
+2. Services for above opertion
+3. CRUD operations
+4. Sample Exception Handling for Add and Edit Operations
+5. Covers HTTP Client for GET and POST Services for Test Case Use
+6. Maven Build 
+
+
+Technology and Tools Used:
+Java, Spring Framework, Spring Boot, MicroService,RestService, Hiebernate,  JUnit, Maven Build, SqlLocalDB, JSP, JQuery, BootStrap, Spring Tool Suite 4, Soap UI, Microsoft SqlSever Management Studio
