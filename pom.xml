@@ -56,8 +56,7 @@
 			<artifactId>jtds</artifactId>
 			<version>1.3.1</version>
 			<scope>system</scope>
-			<systemPath>D:/workspace_springboot/mars-exercise/src/main/lib/jtds-1.3.2.jar
-			</systemPath>
+			<systemPath>${basedir}/src/main/lib/jtds-1.3.2.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>jcifs</groupId>
