@@ -22,7 +22,7 @@ public class PersonServiceTest {
 		String response = HTTPClient.sendPOST(PATH, POST_PARAMS);
 		System.out.println("RESPONSE : " + response);
 		
-        assertEquals("SERVICE FAILED","Congratulation, Person Added Successfull!<br> <a href='index' >Go To Home</a>", response);
+        assertEquals("SERVICE FAILED","Congratulation, Person Added Successfull!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>", response);
     }
 	
 	/**Test Service for Count Person (No of Person registered).**/
@@ -47,7 +47,7 @@ public class PersonServiceTest {
 		String response = HTTPClient.sendPOST(PATH, POST_PARAMS);
 		System.out.println("RESPONSE : " + response);
 		
-        assertEquals("SERVICE FAILED","Congratulation, Person Added Successfull!<br> <a href='index' >Go To Home</a>", response);
+        assertEquals("SERVICE FAILED","Congratulation, Person Added Successfull!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>", response);
     }
 	
 	/**Test Service for Edit Person Details. Edit with ID 2**/
@@ -60,7 +60,7 @@ public class PersonServiceTest {
 		String response = HTTPClient.sendPOST(PATH, POST_PARAMS);
 		System.out.println("RESPONSE : " + response);
 		
-        assertEquals("SERVICE FAILED","Congratulation, Person Edit Successfull!<br> <a href='mars/index' >Go To Home</a>", response);
+        assertEquals("SERVICE FAILED","Congratulation, Person Edit Successfully!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>", response);
     }
 	
 
