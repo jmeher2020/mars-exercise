@@ -16,6 +16,7 @@ Address Operations:
 1. Add Address to person [multiple required] (id, street, city, state, postalCode)
 2. Edit Address (street, city, state, postalCode)
 3. Delete Address (id)
+4. Address List
 
 It also Includes : 
 1. JUnit Tests
