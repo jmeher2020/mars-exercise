@@ -1,10 +1,10 @@
-<%@page import="com.mars.exercise.model.Person"%>
+<%@page import="com.mars.exercise.model.Address"%>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Add Person Details</title>
+	<title>Add Address Details</title>
 
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +18,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<%
-		List<Person> personList = (List<Person>)request.getAttribute("PERSON_OBJ_LIST");
+		List<Address> addressList = (List<Address>)request.getAttribute("ADDRESS_OBJ_LIST");
 	%>
 	<style>
 
@@ -36,8 +36,8 @@
 	
 </head>
 <body>
-	<h2> Person List</h2>
-	<div class="limiter" style="width:80%" id="tableDiv">
+	<h2> Address List</h2>
+	<div class="limiter" style="width:100%" id="tableDiv">
 		<div class="container-table100" style="margin-bottom:10px;">
 			<div class="wrap-table100">
 				<div class="table100">
@@ -45,34 +45,37 @@
 						  <thead>
 						    <tr class="table100-head header" class="rowVehData">     
 						      <th>Sl. No.</th>           
-						      <th>ID</th> 							                               
-						      <th>First Name</th>                                                        
-						      <th>Last Name</th>
+						      <th>Add Id</th> 							                               
+						      <th>Person Id</th>                                                        
+						      <th>Street</th>
+						      <th>City</th>
+						      <th>State</th>
+						      <th>Postal Code</th>
 						      <th style="padding: 0;width: 200px;text-align: center">Actions</th>
 						    </tr>
 						  </thead>
 			              <tbody>	
-			              	<%if(!personList.isEmpty()){ int ctr=1; %>	         
-				              	<%for(Person personObj : personList){ %>	              
+			              	<%if(!addressList.isEmpty()){ int ctr=1; %>	         
+				              	<%for(Address addressObj : addressList){ %>	              
 				                  <tr style="border-bottom:1px solid black" class="rowVehData" >
 				                  	  <td style="width:50px;"><%=ctr%></td>
-				                  	   <td ><%=personObj.getId() %></td>
-				                  	    <td "><%=personObj.getFirstName()%></td>
-				                  	    <td ><%=personObj.getLastName() %></td>
+				                  	   <td ><%=addressObj.getAddress_id()%></td>
+				                  	    <td ><%=addressObj.getId()%></td>
+				                  	     <td ><%=addressObj.getStreet()%></td>
+				                  	      <td ><%=addressObj.getCity()%></td>
+				                  	       <td ><%=addressObj.getState()%></td>
+				                  	        <td ><%=addressObj.getPostalCode()%></td>
 				        
 					                  <td style="text-align: center;padding-left: 0 !important;">
-					                    <i title="Edit Person" class="editPersonDet fa fa-pencil" id="<%=personObj.getId()%>" style="font-size: 20px;color: #fc9e00;" ></i>&nbsp;&nbsp;
-					                    <i title="Delete Person" class="delPersonDet fa fa-trash" id="<%=personObj.getId()%>" style="font-size: 20px;color: #fc9e00;"></i>
-					                    <i title="Add Address" class="addAddress fa fa-plus-circle" id="<%=personObj.getId()%>" style="font-size: 20px;color: #fc9e00;" ></i>&nbsp;&nbsp;
-					                    <i title="Show Address" class="showAddress fa fa-list" id="<%=personObj.getId()%>" style="font-size: 20px;color: #fc9e00;" ></i>&nbsp;&nbsp;
-					                    
-				
+					                    <i title="Edit Address" class="editAddressDet fa fa-pencil" id="<%=addressObj.getAddress_id()%>" style="font-size: 20px;color: #fc9e00;" ></i>&nbsp;&nbsp;
+					                    <i title="Delete Address" class="delAddressDet fa fa-trash" id="<%=addressObj.getAddress_id()%>" style="font-size: 20px;color: #fc9e00;"></i>
+					                   
 					                  </td>
 				                  </tr>          
 			              		<%ctr++;}%>
 			              	<%}else{%>	
 			               		<tr>
-			               			<td colspan="5" style="text-align: center;font-size: 19px;font-weight: bold;">No Data Found!</td>
+			               			<td colspan="8" style="text-align: center;font-size: 19px;font-weight: bold;">No Data Found!</td>
 			               		</tr> 
 				            <%}%>
 			              </tbody>
@@ -88,27 +91,21 @@
 	<script>
 	$(document).ready(function(){
 	
-		$(".editPersonDet").on("click",function(){
-			window.location.href = "editPersonForm/"+this.id;
+		$(".editAddressDet").on("click",function(){
+			window.location.href = "editAddressForm/"+this.id;
 		});
 
-		$(".delPersonDet").on("click",function(){
-			if (confirm("Are you sure want to Remove the Person?")){
-				window.location.href = "deletePersonDetails/"+this.id;
+
+		$(".delAddressDet").on("click",function(){
+			if (confirm("Are you sure want to Remove the Address?")){
+				window.location.href = "deleteAddressDetails/"+this.id;
 			}
 		});
 
-		$(".addAddress").on("click",function(){
-			window.location.href = "addAddressForm/"+this.id;
-		});
-
-		$(".showAddress").on("click",function(){
-			window.location.href = "fetchAddresssList/"+this.id;
-		});
-		
+	
 	
 		$('.modal').on('hidden.bs.modal', function () {
-			window.location.href = 'fetchPersonsList';
+			window.location.href = 'fetchAddresssList';
 		})
 	});
 	</script>

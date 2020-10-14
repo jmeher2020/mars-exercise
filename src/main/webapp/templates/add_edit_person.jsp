@@ -16,7 +16,7 @@
 
 		.form-group {
 		    margin-bottom: 15px;
-		    width: 70% !important;
+		    width: 80% !important;
 		}
 		
 		@media screen and (min-width: 600px) {
@@ -31,7 +31,8 @@
 	
 </head>
 <body>
-	<form:form name="addpersonForm" id="addpersonForm"  action="addperson" method="post" modelAttribute="personForm" >
+	<h2> Add Edit Person</h2>
+	<form:form name="addpersonForm" id="addpersonForm"  action="addPerson" method="post" modelAttribute="personForm" >
 	
 		<div class="form-group" style="display:none;" id="id_div">
 	      <label >ID:</label>
@@ -52,7 +53,7 @@
 	</form:form>
 	
 	<div class="form-group">
-	     	<a href="index" >Go To Home</a>
+	     	<a href="http://localhost:8081/mars/index" >Go To Home</a>
 	    </div>
 	    <%if(personObj != null){ %>
 	    <script>
@@ -62,7 +63,7 @@
 				$("#firstName").val("<%=personObj.getFirstName()%>");
 				$("#lastName").val("<%=personObj.getLastName()%>");
 				$("#submitBtn").val("Edit");
-				$("#addpersonForm").attr("action", "editperson");
+				$("#addpersonForm").attr("action", "editPerson");
 	
 	    </script>
 	    <%}%>

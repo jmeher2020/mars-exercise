@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mars.exercise.services.PersonService;
 
 @RestController
-@RequestMapping(path="/rest")
+@RequestMapping(path="/mars")
 public class PersonRestController {
 	
 	@Autowired 

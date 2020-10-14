@@ -44,45 +44,45 @@ public class PersonUIController {
 	}
 
 
-	@PostMapping(path="/addperson") 
+	@PostMapping(path="/addPerson") 
 	public @ResponseBody String addPerson (@ModelAttribute("SpringWeb")Person objPerson) {
 		System.out.println("START: Controller Add Person");		
 		try {
 			personServ.addEditPersonDetails(objPerson);
 		} catch (HibernateException e) {
-			return "Oops!, Faild to Add Person Details!<br> <a href='index' >Go To Home</a>";
+			return "Oops!, Faild to Add Person Details!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
 		}
-		return "Congratulation, Person Added Successfull!<br> <a href='index' >Go To Home</a>";
+		return "Congratulation, Person Added Successfull!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
 	}
 
 
 	@GetMapping(path="/fetchPersonsList")
 	public ModelAndView getPersonsList(Model model) {
 		System.out.println("INSIDE : getPersonsList");	
-		
+
 		List<Person> personList = personServ.fetchPersonList();
-		
+
 		model.addAttribute("PERSON_OBJ_LIST", personList);		
 		return new ModelAndView("/person_list");
 
 	}
 
-	@PostMapping(path="/editPersonForm/editperson") 
+	@PostMapping(path="/editPersonForm/editPerson") 
 	public @ResponseBody String editPerson(@ModelAttribute("SpringWeb")Person objPerson) {
 		System.out.println("START: Controller Eidt Person");		
 		try {
 			personServ.addEditPersonDetails(objPerson);
 		} catch (HibernateException e) {
-			return "Oops!, Faild to Edit Person Details!<br> <a href='index' >Go To Home</a>";
+			return "Oops!, Faild to Edit Person Details!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
 		}
-		return "Congratulation, Person Edit Successfull!<br> <a href='mars/index' >Go To Home</a>";
+		return "Congratulation, Person Edit Successfully!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
 	}
 
 	@GetMapping(path="/deletePersonDetails/{id}") 
 	public @ResponseBody String deletePersonDetails(@PathVariable("id") String id) {
 		System.out.println("START: Controller deletePersonDetails");		
 		personServ.deletePersonDetails(id);
-		return "Congratulation, Person Deleted Successfull!<br> <a href='mars/index' >Go To Home</a>";
+		return "Congratulation, Person Deleted Successfull!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
 	}
 
 }
