@@ -4,7 +4,7 @@
 /**CREATE PERSON TABLE**/
 
 CREATE TABLE [dbo].[person](
-	[id] INT IDENTITY(1, 1) NOT NULL,
+	[id] INT IDENTITY(1001, 1) NOT NULL,
 	[first_name] [varchar](255) NULL,
 	[last_name] [varchar](255) NULL,
 CONSTRAINT [PK_Person] PRIMARY KEY CLUSTERED ([id] ASC)
@@ -16,7 +16,7 @@ CONSTRAINT [PK_Person] PRIMARY KEY CLUSTERED ([id] ASC)
 /**CREATE ADDRESS TABLE**/
 
 CREATE TABLE [dbo].[address](
-	[address_id] INT IDENTITY(1, 1) NOT NULL,
+	[address_id] INT IDENTITY(101, 1) NOT NULL,
 	[city] [varchar](255) NULL,
 	[postal_code] [varchar](255) NULL,
 	[state] [varchar](255) NULL,

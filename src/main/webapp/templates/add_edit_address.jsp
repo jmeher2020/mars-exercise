@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Learn Spring Boot (MVC,JSP,Hibernate)</title>
+	<title>Mars Exercise</title>
 	<link rel="icon" href="${contextPath}/images/favicon1.ico" type="image/ico">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,7 +43,7 @@
 <body style="text-align: -webkit-center;">
 	
 	<div style="border:1px solid black;width: max-content;padding:20px;">
-	<h2> <span id="textAddEddit">Add</span> Address Details</h2>
+	<h2>Mars Exercise - <span id="textAddEddit">Add</span> Address Details</h2>
 	<form:form name="addAddressForm" id="addAddressForm"  action="${contextPath}/mars/addAddress" method="post" modelAttribute="addressForm" >
 	
 		<div class="form-group"  >

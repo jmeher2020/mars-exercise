@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Learn Spring Boot (MVC,JSP,Hibernate)</title>
+	<title>Mars Exercise</title>
 	<link rel="icon" href="${contextPath}/images/favicon1.ico" type="image/ico">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">

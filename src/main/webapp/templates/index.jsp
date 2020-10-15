@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Learn Spring Boot (MVC,JSP,Hibernate)</title>
+	<title>Mars Exercise</title>
 	<link rel="icon" href="${contextPath}/images/favicon1.ico" type="image/ico">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +38,7 @@
 <body style="text-align: -webkit-center;">
 	
 	<div style="border:1px solid black;width: max-content;padding:20px;">
-		<h2> Learn Spring Boot (MVC,JSP,Hibernate) </h2>
+		<h2> Welcome To Mars Exercise </h2>
 		<div class="form-group">
 			<i class="fa fa-user" >
 	     		<a href="addPersonForm" >Add Person Details</a>
