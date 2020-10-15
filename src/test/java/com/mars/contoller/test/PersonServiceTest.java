@@ -22,7 +22,7 @@ public class PersonServiceTest {
 		String response = HTTPClient.sendPOST(PATH, POST_PARAMS);
 		System.out.println("RESPONSE : " + response);
 		
-        assertEquals("SERVICE FAILED","Congratulation, Person Added Successfull!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>", response);
+        assertEquals("SERVICE FAILED","Congratulation, Person Added Successfull!<br> <a href='/mars/index' >Go To Home</a>", response);
     }
 	
 	/**Test Service for Count Person (No of Person registered).**/
@@ -47,20 +47,20 @@ public class PersonServiceTest {
 		String response = HTTPClient.sendPOST(PATH, POST_PARAMS);
 		System.out.println("RESPONSE : " + response);
 		
-        assertEquals("SERVICE FAILED","Congratulation, Person Added Successfull!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>", response);
+        assertEquals("SERVICE FAILED","Congratulation, Person Added Successfull!<br> <a href='/mars/index' >Go To Home</a>", response);
     }
 	
 	/**Test Service for Edit Person Details. Edit with ID 2**/
 	@Test
     public void testEditPersonService() throws IOException {
 		
-		String PATH = "editPersonForm/editPerson";
+		String PATH = "editPerson";
 		String POST_PARAMS = "id=1&firstName=Jadumani&lastName=Meher";		
 		
 		String response = HTTPClient.sendPOST(PATH, POST_PARAMS);
 		System.out.println("RESPONSE : " + response);
 		
-        assertEquals("SERVICE FAILED","Congratulation, Person Edit Successfully!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>", response);
+        assertEquals("SERVICE FAILED","Congratulation, Person Edit Successfully!<br> <a href='/mars/index' >Go To Home</a>", response);
     }
 	
 
@@ -70,15 +70,11 @@ public class PersonServiceTest {
     public void testDeletPersonService() throws IOException {
 		
 		//String GET_URL = "deletePersonDetails/3";
-	
-		
+			
 		//String response = HTTPClient.sendGET(GET_URL);
 		//System.out.println("RESPONSE : " + response);
 		
         //assertEquals("SERVICE FAILED","Congratulation, Person Deleted Successfull!<br> <a href='mars/index' >Go To Home</a>", response);
     }
-	
-	
-	
-		
+			
 }

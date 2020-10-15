@@ -3,6 +3,8 @@ package com.mars.exercise.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,15 +26,11 @@ public class PersonUIController {
 
 	@Autowired 
 	private PersonService personServ;
-
-	@GetMapping(path = {"/index"})
-	public String  openIndexScreen(){
-		System.out.println("INSIDE: Request Index Page");	
-		return "/index";
-	}
+	
+	
 
 	@GetMapping(path = {"/addPersonForm", "/editPersonForm/{id}"})
-	public String  openAddEditForm(Model model, @PathVariable("id") Optional<String> id){
+	public String  openAddEditForm(HttpServletRequest request, Model model, @PathVariable("id") Optional<String> id){
 		System.out.println("INSIDE: Request for Add Edit Form");
 
 		Person personObj = null;
@@ -40,19 +38,19 @@ public class PersonUIController {
 			personObj = personServ.fetchPersonWithId(id.get());
 		}
 		model.addAttribute("PERSON_OBJ", personObj);
-		return "/add_edit_person";
+		return "/add_edit_person.jsp";
 	}
 
 
 	@PostMapping(path="/addPerson") 
-	public @ResponseBody String addPerson (@ModelAttribute("SpringWeb")Person objPerson) {
+	public @ResponseBody String addPerson (HttpServletRequest request, @ModelAttribute("SpringWeb")Person objPerson) {
 		System.out.println("START: Controller Add Person");		
 		try {
 			personServ.addEditPersonDetails(objPerson);
 		} catch (HibernateException e) {
-			return "Oops!, Faild to Add Person Details!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
+			return "Oops!, Faild to Add Person Details!<br> <a href='"+request.getContextPath()+"/mars/index' >Go To Home</a>";
 		}
-		return "Congratulation, Person Added Successfull!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
+		return "Congratulation, Person Added Successfull!<br> <a href='"+request.getContextPath()+"/mars/index' >Go To Home</a>";
 	}
 
 
@@ -63,26 +61,26 @@ public class PersonUIController {
 		List<Person> personList = personServ.fetchPersonList();
 
 		model.addAttribute("PERSON_OBJ_LIST", personList);		
-		return new ModelAndView("/person_list");
+		return new ModelAndView("/person_list.jsp");
 
 	}
 
-	@PostMapping(path="/editPersonForm/editPerson") 
-	public @ResponseBody String editPerson(@ModelAttribute("SpringWeb")Person objPerson) {
+	@PostMapping(path="/editPerson") 
+	public @ResponseBody String editPerson(HttpServletRequest request, @ModelAttribute("SpringWeb")Person objPerson) {
 		System.out.println("START: Controller Eidt Person");		
 		try {
 			personServ.addEditPersonDetails(objPerson);
 		} catch (HibernateException e) {
-			return "Oops!, Faild to Edit Person Details!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
+			return "Oops!, Faild to Edit Person Details!<br> <a href='"+request.getContextPath()+"/mars/index' >Go To Home</a>";
 		}
-		return "Congratulation, Person Edit Successfully!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
+		return "Congratulation, Person Edit Successfully!<br> <a href='"+request.getContextPath()+"/mars/index' >Go To Home</a>";
 	}
 
 	@GetMapping(path="/deletePersonDetails/{id}") 
-	public @ResponseBody String deletePersonDetails(@PathVariable("id") String id) {
+	public @ResponseBody String deletePersonDetails(HttpServletRequest request, @PathVariable("id") String id) {
 		System.out.println("START: Controller deletePersonDetails");		
 		personServ.deletePersonDetails(id);
-		return "Congratulation, Person Deleted Successfull!<br> <a href='http://localhost:8081/mars/index' >Go To Home</a>";
+		return "Congratulation, Person Deleted Successfull!<br> <a href='"+request.getContextPath()+"/mars/index' >Go To Home</a>";
 	}
 
 }

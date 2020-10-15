@@ -4,15 +4,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Add Address Details</title>
-
+	<title>Learn Spring Boot (MVC,JSP,Hibernate)</title>
+	<link rel="icon" href="${contextPath}/images/favicon1.ico" type="image/ico">
 	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   	
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,18 +32,21 @@
 				width:90% !important;
 			}
 		}
+		
+		i{
+			font-size: 20px !important;
+			color: #007bff;
+		}
 	</style>
 	
 </head>
-<body>
-	<h2> Address List</h2>
-	<div class="limiter" style="width:100%" id="tableDiv">
-		<div class="container-table100" style="margin-bottom:10px;">
-			<div class="wrap-table100">
-				<div class="table100">
-					 <table class="table">
-						  <thead>
-						    <tr class="table100-head header" class="rowVehData">     
+<body style="text-align: -webkit-center;">	
+	<div style="border:1px solid black;width: max-content;padding:20px;">
+		<h2> Address List</h2>	
+		<div class="container"> 
+			 <table class="table">
+					    <thead class="thead-dark" style="white-space: nowrap">
+						    <tr>     
 						      <th>Sl. No.</th>           
 						      <th>Add Id</th> 							                               
 						      <th>Person Id</th>                                                        
@@ -51,7 +54,7 @@
 						      <th>City</th>
 						      <th>State</th>
 						      <th>Postal Code</th>
-						      <th style="padding: 0;width: 200px;text-align: center">Actions</th>
+						      <th style="width: 200px;text-align:center">Actions</th>
 						    </tr>
 						  </thead>
 			              <tbody>	
@@ -67,8 +70,8 @@
 				                  	        <td ><%=addressObj.getPostalCode()%></td>
 				        
 					                  <td style="text-align: center;padding-left: 0 !important;">
-					                    <i title="Edit Address" class="editAddressDet fa fa-pencil" id="<%=addressObj.getAddress_id()%>" style="font-size: 20px;color: #fc9e00;" ></i>&nbsp;&nbsp;
-					                    <i title="Delete Address" class="delAddressDet fa fa-trash" id="<%=addressObj.getAddress_id()%>" style="font-size: 20px;color: #fc9e00;"></i>
+					                    <i title="Edit Address" class="editAddressDet fa fa-pencil" id="<%=addressObj.getAddress_id()%>" style="font-size: 20px;color: #007bff;" ></i>&nbsp;&nbsp;
+					                    <i title="Delete Address" class="delAddressDet fa fa-trash" id="<%=addressObj.getAddress_id()%>" style="font-size: 20px;color: #007bff;"></i>
 					                   
 					                  </td>
 				                  </tr>          
@@ -80,11 +83,11 @@
 				            <%}%>
 			              </tbody>
 		            </table> 
-				</div>
-			</div>
 		</div>
 		<div class="form-group">
-	     	<a href="http://localhost:8081/mars/index" >Go To Home</a>
+			<i class="fa fa-home" >
+	    	    <a href="/mars/index" >Go To Home</a>
+	     	</i>	     	
 	    </div>
 	</div>
 
@@ -92,20 +95,20 @@
 	$(document).ready(function(){
 	
 		$(".editAddressDet").on("click",function(){
-			window.location.href = "editAddressForm/"+this.id;
+			window.location.href = "${contextPath}/mars/editAddressForm/"+this.id;
 		});
 
 
 		$(".delAddressDet").on("click",function(){
 			if (confirm("Are you sure want to Remove the Address?")){
-				window.location.href = "deleteAddressDetails/"+this.id;
+				window.location.href = "${contextPath}/mars/deleteAddressDetails/"+this.id;
 			}
 		});
 
 	
 	
 		$('.modal').on('hidden.bs.modal', function () {
-			window.location.href = 'fetchAddresssList';
+			window.location.href = '${contextPath}/mars/fetchAddresssList';
 		})
 	});
 	</script>
